@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: notification-service
+
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        instance-id: notification-service
+        health-check-path: /notification/health
+        enabled: true
+      enabled: true
+      service-registry:
+        enabled: true
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  port: 8081

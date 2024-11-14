@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: user-service
+
+  config:
+    import: "optional:consul:"
+
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        instance-id: user-service
+        enabled: true
+        health-check-path: /user-notification
+      enabled: true
+      service-registry:
+        enabled: true
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+server:
+  port: 8080
