@@ -23,5 +23,12 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
+
+grpc:
+  client:
+    document-service:
+      address: static://localhost:8083
+      negotiation-type: plaintext
+
 server:
   port: 8080

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: document-service
+
+  config:
+    import: "optional:consul:"
+
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        instance-id: document-service
+        enabled: true
+        register-health-check: false
+      enabled: true
+      service-registry:
+        enabled: true
+
+server:
+  port: 8082
+
+grpc:
+  server:
+    port: 8083
